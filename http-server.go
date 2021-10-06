@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"strings"
 )
 
 func sayhelloName(w http.ResponseWriter, r *http.Request) {
@@ -14,11 +13,12 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("scheme", r.URL.Scheme)
 	fmt.Println(r.Form["url_long"])
 
+	//从请求中获取HTTP标头并插入response headers
 	for k, v := range r.Header {
 		fmt.Println("key:", k)
-		fmt.Println("val:", strings.Join(v, ""))
-		//从请求中获取HTTP标头并插入response headers
-		w.Header().Set(k, "v")
+		fmt.Println("val:", v)
+		v1 := v[0] //转换v的[]string类型为string
+		w.Header().Set(k, v1)
 	}
 
 	fmt.Fprintf(w, "GeekBang-k8s-lesson1")
