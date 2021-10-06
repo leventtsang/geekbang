@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbb4e2cd-f726-445e-a757-ad59a2c9869a" name="更改" comment="0928">
-      <change afterPath="$PROJECT_DIR$/1.1.go" afterDir="false" />
+    <list default="true" id="dbb4e2cd-f726-445e-a757-ad59a2c9869a" name="更改" comment="1006">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/http-server.go" beforeDir="false" afterPath="$PROJECT_DIR$/http-server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test1.go" beforeDir="false" afterPath="$PROJECT_DIR$/test1.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +106,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="0928" />
-    <option name="LAST_COMMIT_MESSAGE" value="0928" />
+    <MESSAGE value="1006" />
+    <option name="LAST_COMMIT_MESSAGE" value="1006" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>

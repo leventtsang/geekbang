@@ -10,16 +10,17 @@ import (
 func sayhelloName(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	fmt.Println(r.Form)
-
-	//从请求中获取HTTP标头作为数组并插入response headers
-
 	fmt.Println("path", r.URL.Path)
 	fmt.Println("scheme", r.URL.Scheme)
 	fmt.Println(r.Form["url_long"])
-	for k, v := range r.Form {
+
+	for k, v := range r.Header {
 		fmt.Println("key:", k)
 		fmt.Println("val:", strings.Join(v, ""))
+		//从请求中获取HTTP标头并插入response headers
+		w.Header().Set(k, "v")
 	}
+
 	fmt.Fprintf(w, "GeekBang-k8s-lesson1")
 }
 
@@ -36,6 +37,7 @@ func healthz(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+
 	http.HandleFunc("/", sayhelloName)   //设置根目录路由
 	http.HandleFunc("/404", http4xx)     //设置4xx路由-练手未完成，需设置正则
 	http.HandleFunc("/504", http5xx)     //设置5xx路由-练手未完成，需设置正则
@@ -45,4 +47,5 @@ func main() {
 	if err != nil {
 		log.Fatal("ListenAndServe:	", err)
 	}
+
 }
