@@ -10,6 +10,9 @@ import (
 func sayhelloName(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	fmt.Println(r.Form)
+
+	//从请求中获取HTTP标头作为数组并插入response headers
+
 	fmt.Println("path", r.URL.Path)
 	fmt.Println("scheme", r.URL.Scheme)
 	fmt.Println(r.Form["url_long"])
@@ -20,15 +23,25 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "GeekBang-k8s-lesson1")
 }
 
-func sayno(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "no hello")
+func http4xx(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "You f*ck up")
+}
+
+func http5xx(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "I f*ck up")
+}
+
+func healthz(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "200")
 }
 
 func main() {
-	http.HandleFunc("/", sayhelloName) //设置访问路由
-	//创建监听端口
-	http.HandleFunc("/no", sayno) //设置访问路由
-	err := http.ListenAndServe(":9090", nil)
+	http.HandleFunc("/", sayhelloName)   //设置根目录路由
+	http.HandleFunc("/404", http4xx)     //设置4xx路由-练手未完成，需设置正则
+	http.HandleFunc("/504", http5xx)     //设置5xx路由-练手未完成，需设置正则
+	http.HandleFunc("/healthz", healthz) //设置心跳检测路径
+
+	err := http.ListenAndServe(":9090", nil) //创建监听端口
 	if err != nil {
 		log.Fatal("ListenAndServe:	", err)
 	}

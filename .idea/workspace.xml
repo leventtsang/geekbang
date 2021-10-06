@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dbb4e2cd-f726-445e-a757-ad59a2c9869a" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/test1.go" afterDir="false" />
+    <list default="true" id="dbb4e2cd-f726-445e-a757-ad59a2c9869a" name="更改" comment="0928">
+      <change afterPath="$PROJECT_DIR$/1.1.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/http-server.go" beforeDir="false" afterPath="$PROJECT_DIR$/http-server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test1.go" beforeDir="false" afterPath="$PROJECT_DIR$/test1.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +45,25 @@
     <property name="last_opened_file_path" value="$USER_HOME$" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager" selected="Go 构建.go build test1.go">
+  <component name="RunManager" selected="Go 构建.go build http-server.go">
+    <configuration name="go build github.com/geekbang (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="geekbang" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <package value="github.com/geekbang" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/1.1.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/geekbang" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="geekbang" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="DIRECTORY" />
+      <package value="github.com/geekbang" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/1.1.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build http-server.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="geekbang" />
       <working_directory value="$PROJECT_DIR$" />
@@ -64,8 +84,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go 构建.go build test1.go" />
         <item itemvalue="Go 构建.go build http-server.go" />
+        <item itemvalue="Go 构建.go build github.com/geekbang (1)" />
+        <item itemvalue="Go 构建.go build github.com/geekbang" />
+        <item itemvalue="Go 构建.go build test1.go" />
       </list>
     </recent_temporary>
   </component>
@@ -83,6 +105,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="0928" />
+    <option name="LAST_COMMIT_MESSAGE" value="0928" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
