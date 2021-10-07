@@ -21,7 +21,9 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set(k, v1)
 	}
 
-	fmt.Fprintf(w, "GeekBang-k8s-lesson1")
+	w.Header().Set("Version", "Go 1.17.1 Windows/AMD64") //在response headers插入version信息
+
+	fmt.Fprintf(w, "GeekBang-k8s-lesson1") //输出页面内容
 }
 
 func http4xx(w http.ResponseWriter, r *http.Request) {
