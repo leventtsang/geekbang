@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: httpserver-web
+  namespace: geekbang
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+    - hosts:
+      - httpserver.levent.xyz
+      secretName: ssl
+  rules:
+    - host: httpserver.levent.xyz
+      http:
+        paths:
+        - path: "/"
+          pathType: Prefix
+          backend:
+            serviceName: httpserver
+            servicePort: 80
