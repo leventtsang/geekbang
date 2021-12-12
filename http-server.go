@@ -13,6 +13,11 @@ func sayhelloName(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("scheme", r.URL.Scheme)
 	fmt.Println(r.Form["url_long"])
 
+	timer := metrics.NewTimer()
+    	defer timer.ObserveTotal()
+   	delay := randInt(10, 2000)
+    	time.Sleep(time.Millisecond * time.Duration(delay))
+	
 	//从请求中获取HTTP标头并插入response headers
 	for k, v := range r.Header {
 		fmt.Println("key:", k)
@@ -36,6 +41,11 @@ func http5xx(w http.ResponseWriter, r *http.Request) {
 
 func healthz(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "200")
+}
+
+func randInt(min int, max int) int {
+    rand.Seed(time.Now().UTC().UnixNano())
+    return min + rand.Intn(max-min)
 }
 
 func main() {
