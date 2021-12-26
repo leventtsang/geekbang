@@ -1,0 +1,48 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: webserver-vs
+spec:
+  gateways:
+    - webserver-gw
+  http:
+    - match:
+        - port: 443
+          uri:
+            exact: "/"
+      rewrite:
+          uri: "/delay"
+      route:
+        - destination:
+            host: webserver-svc
+            port:
+              number: 8080
+    - match:
+        - port: 443
+          uri:
+            exact: "/healthz"
+        - port: 443
+          uri:
+            prefix: "/test"
+      route:
+         - destination:
+             host: webserver-svc
+             port:
+               number: 8090
+
+---
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: webserver-gw
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        name: https
+        number: 443
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        credentialName: tls
